@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('acciones',function(){
+    dump("Se imprime esto");
+//   return view("welcome");
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +31,7 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::resource('task','TaskController');
 });
 
 Route::group(['middleware' => 'web'], function () {
